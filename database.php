@@ -1,0 +1,59 @@
+<?php
+require_once 'config.php';
+
+class Database
+{
+    private static $instance = null;
+    private $pdo;
+
+    private function __construct()
+    {
+        try{
+             $this->pdo = new PDO(dsn: DB_DSN);
+             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+             $this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+             $this->criarTabelas();
+           } catch (PDOException $e){
+                die("Erro na conexao".$e->getMessage());
+           }  
+    }
+    private function getConnection(){
+        return $this->pdo;
+    }
+    private static function getInstance(){
+        if(self::$instance == null){
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+    private function criarTabelas(){
+        $stmt = $this->pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='users'");
+        $tableexistis = $stmt->fetch()!== false;
+
+        if($tableexistis){
+            $sql = "CREATE TABLE users(
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                nome TEXT NOT NULL,
+                email TEXT NOT NULL,
+                senha TEXT NOT NULL
+            )";
+            $this->pdo->exec($sql);
+        }
+
+        $stmt = $this->pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='alunos'");
+        $tableexistis = $stmt->fetch()!== false;
+
+        if($tableexistis){
+            $sql = "CREATE TABLE alunos(
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    nome TEXT NOT NULL,
+                    nota1 REAL NOT NULL CHECK (nota1 >=0 AND nota1<=10),
+                    nota2 REAL NOT NULL CHECK (nota2 >=0 AND nota2<=10),
+                    media REAL
+            )";
+            $this->pdo->exec($sql);
+        }
+    }  
+}
+$db = Database::getInstance();
+?>
