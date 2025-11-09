@@ -16,5 +16,16 @@ function NaoLogado(){
         Redirecionamento('../auth/login.php');
     }
 }
-
-?>
+function flash($message, $type= 'danger'){
+    $_SESSION['flash'] = [$message, 'type'=>$type];
+}
+function showFlash(){
+    if(isset($_SESSION['flash'])){
+        $f = $_SESSION['flash'];
+        echo "div class='alert alert-{$f['type']} alert-dismissible fade show'>
+    {$f['message']}
+    <button type='button'class='btn-close' data-bs-dismiss='alert'></button>
+    </div>";
+    unset($_SESSION["flash"]);
+    }
+}

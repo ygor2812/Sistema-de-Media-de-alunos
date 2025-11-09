@@ -17,10 +17,10 @@ class Database
                 die("Erro na conexao".$e->getMessage());
            }  
     }
-    private function getConnection(){
+    public function getConnection(){
         return $this->pdo;
     }
-    private static function getInstance(){
+    public static function getInstance(){
         if(self::$instance == null){
             self::$instance = new self();
         }
