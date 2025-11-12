@@ -46,10 +46,10 @@ class Database
         if(!$tableexistis){
             $sql = "CREATE TABLE alunos(
                     id INTEGER AUTO_INCREMENT PRIMARY KEY,
-                    nome TEXT NOT NULL,
-                    nota1 REAL NOT NULL CHECK (nota1 >=0 AND nota1<=10),
-                    nota2 REAL NOT NULL CHECK (nota2 >=0 AND nota2<=10),
-                    media REAL
+                    nome VARCHAR(100) NOT NULL,
+                    nota1 DECIMAL (3,1) NOT NULL CHECK (nota1 >=0 AND nota1<=10),
+                    nota2 DECIMAL (3,1) NOT NULL CHECK (nota2 >=0 AND nota2<=10),
+                    media DECIMAL (3,1)
             )";
             $this->pdo->exec($sql);
         }
