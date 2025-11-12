@@ -33,7 +33,7 @@ if($_POST){
 <form method="POST" class="card p-4">
     <div class="mb-3">
         <label class = "form-label">Email</label>
-        <input type = "email" name="email" class="'form-control" required>
+        <input type = "email" name="email" class="form-control" required>
     </div>
     <div class="mb-3">
         <label class="form-label">Senha</label>

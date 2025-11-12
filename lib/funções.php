@@ -21,11 +21,20 @@ function flash($message, $type= 'danger'){
 }
 function showFlash(){
     if(isset($_SESSION['flash'])){
-        $f = $_SESSION['flash'];
-        echo "div class='alert alert-{$f['type']} alert-dismissible fade show'>
-    {$f['message']}
-    <button type='button'class='btn-close' data-bs-dismiss='alert'></button>
-    </div>";
-    unset($_SESSION["flash"]);
+        $message= htmlspecialchars($_SESSION['flash'][0]);
+        $type= $_SESSION['flash'][1]??'danger';
+        echo "<div class= 'alert alert-{$type} alert-dismissible fade show' role='alert'>
+                {$message}
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'</button>
+              </div>";
+
+        unset($_SESSION["flash"]);
+
+    }
+}
+function NecessarioLogin(){
+    if(!Logado()){
+        flash("Voce precisa estar logado pra acessar essa pagina","warning");
+        Redirecionamento('../auth/login.php') ;
     }
 }

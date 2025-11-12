@@ -30,12 +30,12 @@ class Database
         $stmt = $this->pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='users'");
         $tableexistis = $stmt->fetch()!== false;
 
-        if($tableexistis){
+        if(!$tableexistis){
             $sql = "CREATE TABLE users(
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                nome TEXT NOT NULL,
-                email TEXT NOT NULL,
-                senha TEXT NOT NULL
+                id INTEGER AUTO_INCREMENT PRIMARY KEY,
+                nome VARCHAR (100)NOT NULL,
+                email VARCHAR (100)UNIQUE NOT NULL,
+                senha VARCHAR (255) NOT NULL
             )";
             $this->pdo->exec($sql);
         }
@@ -43,9 +43,9 @@ class Database
         $stmt = $this->pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='alunos'");
         $tableexistis = $stmt->fetch()!== false;
 
-        if($tableexistis){
+        if(!$tableexistis){
             $sql = "CREATE TABLE alunos(
-                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    id INTEGER AUTO_INCREMENT PRIMARY KEY,
                     nome TEXT NOT NULL,
                     nota1 REAL NOT NULL CHECK (nota1 >=0 AND nota1<=10),
                     nota2 REAL NOT NULL CHECK (nota2 >=0 AND nota2<=10),
