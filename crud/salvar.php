@@ -4,8 +4,8 @@ require_once '../database.php';
 
 if($_POST){
     $nome = trim($_POST['nome']?? '');
-    $nota1=$_POST['nome']?? '';
-    $nota2=$_POST['nome']?? '';
+    $nota1=$_POST['nota1']?? '';
+    $nota2=$_POST['nota2']?? '';
 
     if(empty($nome)||$nota1===0||$nota2===0){
         flash('Preencha os campos','danger');

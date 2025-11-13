@@ -7,9 +7,9 @@ $id = $_GET['id']?? 0;
 $pdo = Database::getInstance()->getConnection();
 $stmt = $pdo->prepare('SELECT * FROM alunos WHERE id = ?');
 $stmt->execute([$id]);
-$alunos = $stmt->fetchAll();
+$aluno = $stmt->fetch();
 
-if(!$alunos){
+if(!$aluno){
     flash('Aluno nao encontrado', 'danger');
     Redirecionamento('index.php');
 
@@ -28,7 +28,7 @@ if(!$alunos){
     </div>
     <div class="mb-3">
         <label>Nota 2</label>
-         <input type="number" step="0.1" min="0" max="10" name="nota2" class="form-control" value="?= $aluno['nota1']?>" required>
+         <input type="number" step="0.1" min="0" max="10" name="nota2" class="form-control" value="?= $aluno['nota2']?>" required>
     </div>
     <button type="submit" class="btn btn-warning">Atualizar</button>
     <a href="index.php" class="btn btn-warning">cancelar</a>

@@ -26,7 +26,7 @@ $alunos = $stmt->fetchAll();
             <tr>
                 <td><?= htmlspecialchars($a['$nome'])?></td>
                 <td><?= $a['nota1']?></td>
-                <td><?= $a['nota1']?></td>
+                <td><?= $a['nota2']?></td>
                 <td><strong><?= $media?></strong></td>
                 <td>
                     <a href="editar.php? id= <?=$a['id']?>" class="btn btn-sm btn-warning">Editar</a>
