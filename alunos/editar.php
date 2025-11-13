@@ -10,7 +10,7 @@ $stmt->execute([$id]);
 $aluno = $stmt->fetch();
 
 if(!$aluno){
-    flash('Aluno nao encontrado', 'danger');
+    flash('Aluno nao encontrado', 'danger'); //mensagem temporaria
     Redirecionamento('index.php');
 
 }

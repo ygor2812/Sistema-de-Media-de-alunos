@@ -16,14 +16,14 @@ function NaoLogado(){
         Redirecionamento('../auth/login.php');
     }
 }
-function flash($message, $type= 'danger'){
+function flash($message, $type= 'danger'){  //Serve pra salvar a mensagem na sessão
     $_SESSION['flash'] = [$message, 'type'=>$type];
 }
-function showFlash(){
+function showFlash(){ //Essa função serve para exibir mensagens temporaria. -_-
     if(isset($_SESSION['flash'])){
         $message= htmlspecialchars($_SESSION['flash'][0]);
         $type= $_SESSION['flash'][1]??'danger';
-        echo "<div class= 'alert alert-{$type} alert-dismissible fade show' role='alert'>
+        echo "<div class=\"alert alert-{$type} alert-dismissible fade show\" role=\"alert\">
                 {$message}
                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'</button>
               </div>";
@@ -32,7 +32,7 @@ function showFlash(){
 
     }
 }
-function NecessarioLogin(){
+function NecessarioLogin(){ //Proteção de paginas. 0_o
     if(!Logado()){
         flash("Voce precisa estar logado pra acessar essa pagina","warning");
         Redirecionamento('../auth/login.php') ;

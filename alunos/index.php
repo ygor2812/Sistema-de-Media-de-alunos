@@ -10,14 +10,14 @@ $alunos = $stmt->fetchAll();
 <h2 class="mb-4">Lista de Alunos</h2>
 <a href="criar.php" class="btn btn-success mb-3">Novo Aluno</a>
 
-<table class="table table-striped">
+<table class="table table-striped table-dark">
     <thead>
         <tr>
             <th>Nome</th>
             <th>Nota 1</th>
             <th>Nota 2</th>
             <th>Media</th>
-            <th>acao</th>
+            <th>Ação</th>
         </tr>
     </thead>
     <tbody>

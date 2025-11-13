@@ -26,11 +26,11 @@ class Database
         }
         return self::$instance;
     }
-    private function criarTabelas(){
+    private function criarTabelas(){ //funcao de criar tabelas
         $stmt = $this->pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='users'");
         $tableExiste = $stmt->fetch()!== false;
 
-        if(!$tableExiste){
+        if(!$tableExiste){ //tabela de users
             $sql = "CREATE TABLE users(
                 id INTEGER AUTO_INCREMENT PRIMARY KEY,
                 nome VARCHAR(100)NOT NULL,
@@ -43,7 +43,7 @@ class Database
         $stmt = $this->pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='alunos'");
         $tableexistis = $stmt->fetch()!== false;
 
-        if(!$tableExiste){
+        if(!$tableExiste){ //tabela alunos
             $sql = "CREATE TABLE alunos(
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     nome VARCHAR(100) NOT NULL,
