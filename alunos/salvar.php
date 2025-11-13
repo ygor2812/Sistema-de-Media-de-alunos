@@ -9,7 +9,7 @@ if($_POST){
 
     if(empty($nome)||$nota1===0||$nota2===0){
         flash('Preencha os campos','danger');
-    }elseif(!is_numeric($nota1) ||is_numeric($nota2)||$nota1 <0||$nota1>10|| $nota2<0|| $nota2> 10){
+    }elseif(!is_numeric($nota1) ||!is_numeric($nota2)||$nota1 <0||$nota1>10|| $nota2<0|| $nota2> 10){
         flash('As notas precisam ser numeros de 0 ate 10','danger');
     }else{
         try{

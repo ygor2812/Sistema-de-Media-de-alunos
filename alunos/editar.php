@@ -16,11 +16,11 @@ if(!$aluno){
 }
 ?>
 <h2>Editar Aluno</h2>
-<form method="POST" action="update.php" class="card p-4">
+<form method="POST" action="atualizar.php" class="card p-4">
     <input type="hidden" name="id" value="<?= $aluno['id']?>">
     <div class="mb-3">
         <label>Nome</label>
-        <input type="text" name="nome" class="form-control" value="?= htmlspecialchars($aluno['nome'])?>" required>
+        <input type="text" name="nome" class="form-control" value="<?= htmlspecialchars($aluno['nome']) ?>" required>
     </div>
     <div class="mb-3">
         <label>Nota 1</label>

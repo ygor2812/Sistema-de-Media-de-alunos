@@ -18,11 +18,11 @@ if($_POST){
         if($user && password_verify($senha, $user["senha"])){
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_nome'] = $user['nome'];
-            Redirecionamento('../alunos');
+            Redirecionamento('../alunos/index.php');
         }else{
             flash('EMAIL ou SENHA incorretos.');
         } 
-    }catch(Exception $e){
+    }catch(PDOException $e){
         flash('ERRO'. $e->getMessage());
     }
   }

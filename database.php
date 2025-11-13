@@ -28,14 +28,14 @@ class Database
     }
     private function criarTabelas(){
         $stmt = $this->pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='users'");
-        $tableexistis = $stmt->fetch()!== false;
+        $tableExiste = $stmt->fetch()!== false;
 
-        if(!$tableexistis){
+        if(!$tableExiste){
             $sql = "CREATE TABLE users(
                 id INTEGER AUTO_INCREMENT PRIMARY KEY,
-                nome VARCHAR (100)NOT NULL,
-                email VARCHAR (100)UNIQUE NOT NULL,
-                senha VARCHAR (255) NOT NULL
+                nome VARCHAR(100)NOT NULL,
+                email VARCHAR(100)UNIQUE NOT NULL,
+                senha VARCHAR(255) NOT NULL
             )";
             $this->pdo->exec($sql);
         }
@@ -43,13 +43,13 @@ class Database
         $stmt = $this->pdo->query("SELECT name FROM sqlite_master WHERE type='table' AND name='alunos'");
         $tableexistis = $stmt->fetch()!== false;
 
-        if(!$tableexistis){
+        if(!$tableExiste){
             $sql = "CREATE TABLE alunos(
-                    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
                     nome VARCHAR(100) NOT NULL,
-                    nota1 DECIMAL (3,1) NOT NULL CHECK (nota1 >=0 AND nota1<=10),
-                    nota2 DECIMAL (3,1) NOT NULL CHECK (nota2 >=0 AND nota2<=10),
-                    media DECIMAL (3,1)
+                    nota1 REAL NOT NULL CHECK (nota1>=0 AND nota1<=10),
+                    nota2 REAL NOT NULL CHECK (nota2>=0 AND nota2<=10),
+                    media REAL
             )";
             $this->pdo->exec($sql);
         }

@@ -43,5 +43,5 @@ require_once('../lib/funções.php');
         </div>
     </nav>
     <div class="container">
-        <?= showFlash() ?>
+        <?= showFlash(); ?>
 
