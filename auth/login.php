@@ -40,6 +40,6 @@ if($_POST){
         <input type="password" name="senha" class="form-control" required>
     </div>
     <button type="submit" class="btn btn-primary">Entrar</button>
-    <a href="registro.php" class="btn btn-link">Criar conta</a>
+    <a href="registro.php" class="btn btn-secondary">Criar conta</a>
 </form>
 <?php require_once'../lib/footer.php';?>

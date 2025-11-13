@@ -28,7 +28,7 @@ require_once('../lib/funções.php');
                             </span>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white-50" href="../auth/logout.php">Sair</a> 
+                            <a class="nav-link text-white-100" href="../auth/logout.php">Sair</a> 
                         </li>
                     <?php else: ?>
                         <li class="nav-item">

@@ -16,7 +16,7 @@ require_once '../auth/session.php';
         <label>Nota 2</label>
          <input type="number" step="0.1" min="0" max="10" name="nota2" class="form-control" required>
     </div>
-    <button type="submit" class="btn btn-success">Salvar</button>
-    <a href="index.php" class="btn btn-warning">Voltar</a>
+    <button type="submit" class="btn btn-warning">Salvar</button>
+    <a href="index.php" class="btn btn-danger">Voltar</a>
 </form>
 <?php require_once '../lib/footer.php';?>

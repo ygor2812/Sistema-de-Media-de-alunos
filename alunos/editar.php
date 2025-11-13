@@ -31,6 +31,6 @@ if(!$aluno){
          <input type="number" step="0.1" min="0" max="10" name="nota2" class="form-control" value="?= $aluno['nota2']?>" required>
     </div>
     <button type="submit" class="btn btn-warning">Atualizar</button>
-    <a href="index.php" class="btn btn-warning">cancelar</a>
+    <a href="index.php" class="btn btn-danger">cancelar</a>
 </form>
 <?php require_once '../lib/footer.php';?>
