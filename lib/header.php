@@ -1,4 +1,4 @@
-<?php
+<?php // Foi usado conteudo Bootstrap 
 session_start();
 require_once ('../lib/funções.php');
 ?>
