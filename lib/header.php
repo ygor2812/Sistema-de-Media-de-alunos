@@ -31,15 +31,15 @@ require_once ('../lib/funções.php');
                                 Ola, <?=htmlspecialchars($_SESSION['user_nome']) ?>
                             </span>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white-50" href="../auth/logout.php">Sair</a> 
-                        </li>
                     <?php else: ?>
                         <li class="nav-item">
                             <a class="nav-link text-white-50" href="../auth/login.php">Entrar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white-50" href="../auth/registro.php">Registro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" href="../auth/logout.php">Sair</a> 
                         </li>
                     <?php endif?>        
                 </ul>
